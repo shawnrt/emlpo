@@ -1,0 +1,82 @@
+<div>
+  <h1>Create a new Membership</h1>
+  <div>
+    <%= form_for :memberships, :url => memberships_path do |f| %>
+      <p>
+        <%= f.text_field :last_paid, value: Time.now.utc - 4.hours, type: "hidden" %>
+      </p>
+
+      <p>
+        <%= f.text_field :next_payment, value: Time.now.utc + 365.days - 4.hours, type: "hidden" %>
+      </p>
+      <p>
+        <%= f.label :first_name %><br>
+        <%= f.text_field :first_name %>
+      </p>
+
+      <p>
+        <%= f.label :last_name %><br>
+        <%= f.text_field :last_name %>
+      </p>
+
+      <p>
+        <%= f.label :company_name %><br>
+        <%= f.text_field :company_name %>
+      </p>
+
+      <p>
+        <%= f.label :email %><br>
+        <%= f.email_field :email %>
+      </p>
+
+      <p>
+        <%= f.label :address %><br>
+        <%= f.text_field :address %>
+      </p>
+
+      <p>
+        <%= f.label :city %><br>
+        <%= f.text_field :city %>
+      </p>
+
+      <p>
+        <%= f.label :province %><br>
+        <%= f.text_field :province %>
+      </p>
+
+      <p>
+        <%= f.label :postal %><br>
+        <%= f.text_field :postal %>
+      </p>
+
+      <p>
+        <%= f.label :phone %><br>
+        <%= f.text_field :phone %>
+      </p>
+
+      <p>
+        <%= f.label :notes %><br>
+        <%= f.text_area :notes %>
+      </p>
+
+      <p>
+        <%= f.label :membership_type_id %><br>
+        <%= f.select(:membership_type_id) do %>
+          <% @membership_types.each do |membership_type| -%>
+            <%= content_tag(:option, membership_type.display_name, value: membership_type.id) %>
+          <% end %>
+        <% end %>
+      </p>
+
+      <p>
+        <%= radio_button_tag(:email_communications, "email_communications_yes") %>
+        <%= label_tag(:email_communications, "Yes, I would like to receive emails from EMPLO") %>
+
+      </p>
+
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </div>
+</div>
