@@ -1,6 +1,10 @@
 class MembershipsController < ApplicationController
+  before_action :authenticate_user!, :except => [:index, :create, :new]
   def index
     @memberships = Membership.all
+    if current_user.nil?
+      redirect_to "/memberships/new"
+    end
   end
   def new
     @membership_types = MembershipType.all
@@ -16,6 +20,7 @@ class MembershipsController < ApplicationController
       redirect_to @membership
     else
       redirect_to "/memberships/new"
+      flash[:error] = @membership.errors
     end
   end
 end

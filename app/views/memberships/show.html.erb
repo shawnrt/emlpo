@@ -1,19 +1,75 @@
-<p>
-  First Name: <%= @membership.first_name %><br>
-  Last Name: <%= @membership.last_name %><br>
-  Company Name: <%= @membership.company_name %><br>
-  Email Address: <%= @membership.email %><br>
-  Mailing Address: <%= @membership.address %><br>
-  City: <%= @membership.city %><br>
-  Province: <%= @membership.province %><br>
-  Postal Code: <%= @membership.postal %><br>
-  Phone Number: <%= @membership.phone %><br>
-  Notes: <%= @membership.notes %><br>
-  Last Paid: <%= @membership.last_paid_time.strftime("%B %e, %Y at %I:%M %p") %><br>
-  Next Payment Due: <%= @membership.next_paid_time.strftime("%B %e, %Y at %I:%M %p") %><br>
-  Email Communications: <%= @membership.email_communications_yesno %><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 no_pad" style="border-left:1px solid #e6e6e6; border-right:0px solid #e6e6e6;">
+      <div class="section_top_img">
+        <img src="/assets/mem_top_img.jpg" class="img-responsive">
+      </div>
+    </div>
+  </div>
+</div>
 
-  Membership Type: <%= @membership.membership_type.name %><br>
-  Membership Type: <%= @membership.membership_type.duration_years %> year(s)<br>
-  Membership Type: $<%= @membership.membership_type.price_cdn %><br>
-</p>
+<div class="container container_style">
+  <div class="row" style="margin-top:40px;">
+    <div class="col-sm-12 col-md-12 col-lg-12 no_pad">
+      <div class="about_head">
+        EMLPO Membership for <span><%= @membership.first_name %> <%= @membership.last_name %></span>
+      </div>
+
+    </div>
+  </div>
+  <div class="row" style="margin-top:0px;">
+    <div class="col-sm-12 col-md-12 col-lg-12 no_pad">
+      <div class="mem_show_grey">
+        <div class="mem_show_line">
+          First Name: <span><%= @membership.first_name %></span>
+        </div>
+        <div class="mem_show_line">
+          Last Name: <span><%= @membership.last_name %></span>
+        </div>
+        <div class="mem_show_line">
+          Company Name: <span><%= @membership.company_name %></span>
+        </div>
+        <div class="mem_show_line">
+          Email Address: <span><%= @membership.email %></span>
+        </div>
+        <div class="mem_show_line">
+          Mailing Address: <span><%= @membership.address %></span>
+        </div>
+        <div class="mem_show_line">
+          City: <span><%= @membership.city %></span>
+        </div>
+        <div class="mem_show_line">
+          Province: <span><%= @membership.province %></span>
+        </div>
+        <div class="mem_show_line">
+          Postal Code: <span><%= @membership.postal %></span>
+        </div>
+        <div class="mem_show_line">
+          Phone Number: <span><%= @membership.phone %></span>
+        </div>
+        <div class="mem_show_line">
+          Notes: <span><%= @membership.notes %></span>
+        </div>
+        <div class="mem_show_line">
+          Last Paid: <span><%= @membership.last_paid_time.strftime("%B %e, %Y at %I:%M %p") %></span>
+        </div>
+        <div class="mem_show_line">
+          Next Payment Due: <span><%= @membership.next_paid_time.strftime("%B %e, %Y at %I:%M %p") %></span>
+        </div>
+        <div class="mem_show_line" style="margin-bottom:30px;">
+          Email Communications: <span><%= @membership.email_communications %></span>
+        </div>
+        <div class="mem_show_line">
+          Membership Type: <span><%= @membership.membership_type.name %></span>
+        </div>
+        <div class="mem_show_line">
+          Membership Type: <span><%= @membership.membership_type.duration_years %> year(s)</span>
+        </div>
+        <div class="mem_show_line">
+          Membership Type: <span>$<%= @membership.membership_type.price_cdn %></span>
+        </div>
+    </div>
+    </div>
+  </div>
+
+</div>

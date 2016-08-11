@@ -1,82 +1,139 @@
-<div>
-  <h1>Create a new Membership</h1>
-  <div>
-    <%= form_for :memberships, :url => memberships_path do |f| %>
-      <p>
-        <%= f.text_field :last_paid, value: Time.now.utc - 4.hours, type: "hidden" %>
-      </p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 no_pad" style="border-left:1px solid #e6e6e6; border-right:0px solid #e6e6e6;">
+      <div class="section_top_img">
+        <img src="/assets/mem_top_img.jpg" class="img-responsive">
+      </div>
+    </div>
+  </div>
+</div>
 
-      <p>
-        <%= f.text_field :next_payment, value: Time.now.utc + 365.days - 4.hours, type: "hidden" %>
-      </p>
-      <p>
-        <%= f.label :first_name %><br>
-        <%= f.text_field :first_name %>
-      </p>
+<div class="container container_style">
+  <div class="row" style="margin-top:40px;">
+    <div class="col-sm-12 col-md-12 col-lg-12 no_pad">
+      <div class="about_head">
+        EMLPO <span>Membership</span>
+      </div>
+      <div class="about_body">
+        Thank you for choosing to support the EMPLO with your membership. You can register and pay online below or use the downloadable PDF form to register by mail.
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top:16px;">
+    <div class="col-sm-12 col-md-8 col-lg-8 no_pad">
+      <div class="mem_left_shell">
+        <div class="mem_col_head_shell online">
+          Register <span>Online</span>
+        </div>
+        <%= form_for :memberships, :url => memberships_path do |f| %>
+          <%= f.text_field :last_paid, value: Time.now.utc - 4.hours, type: "hidden" %>
+          <%= f.text_field :next_payment, value: Time.now.utc + 365.days - 4.hours, type: "hidden" %>
+          <div class="mem_form_line_left">
+            <%= f.label :first_name %><br>
+            <%= f.text_field :first_name %>
+          </div>
+          <div class="mem_form_line_right">
+            <%= f.label :last_name %><br>
+            <%= f.text_field :last_name %>
+          </div>
+          <div class="clearfix"></div>
+          <div class="mem_form_line_full">
+            <%= f.label :company_name %><br>
+            <%= f.text_field :company_name %>
+          </div>
 
-      <p>
-        <%= f.label :last_name %><br>
-        <%= f.text_field :last_name %>
-      </p>
+          <div class="mem_form_line_left">
+            <%= f.label :email %><br>
+            <%= f.email_field :email %>
+          </div>
+          <div class="mem_form_line_right">
+            <%= f.label :email %><br>
+            <%= f.email_field :email %>
+          </div>
+          <div class="clearfix"></div>
+          <div style="width:100%; margin:15px 0 30px 0; border-top:1px dashed #e6e6e6;"></div>
 
-      <p>
-        <%= f.label :company_name %><br>
-        <%= f.text_field :company_name %>
-      </p>
+          <div class="mem_form_line_full">
+            <%= f.label :address %><br>
+            <%= f.text_field :address %>
+          </div>
 
-      <p>
-        <%= f.label :email %><br>
-        <%= f.email_field :email %>
-      </p>
+          <div class="mem_form_line_left">
+            <%= f.label :city %><br>
+            <%= f.text_field :city %>
+          </div>
+          <div class="mem_form_line_right">
+            <%= f.label :province %><br>
+            <%= f.text_field :province %>
+          </div>
+          <div class="clearfix"></div>
 
-      <p>
-        <%= f.label :address %><br>
-        <%= f.text_field :address %>
-      </p>
+          <div class="mem_form_line_left">
+              <%= f.label :postal %><br>
+              <%= f.text_field :postal %>
+          </div>
+          <div class="mem_form_line_right">
+            <%= f.label :phone %><br>
+            <%= f.text_field :phone %>
+          </div>
+          <div class="clearfix"></div>
 
-      <p>
-        <%= f.label :city %><br>
-        <%= f.text_field :city %>
-      </p>
+          <div class="mem_form_line_full">
+            <%= f.label :notes %><br>
+            <%= f.text_area :notes %>
+          </div>
 
-      <p>
-        <%= f.label :province %><br>
-        <%= f.text_field :province %>
-      </p>
+          <div class="mem_form_line_full">
+            <%= f.label :membership_type_id %><br>
+            <%= f.select(:membership_type_id) do %>
+              <% @membership_types.each do |membership_type| -%>
+                <%= content_tag(:option, membership_type.display_name, value: membership_type.id) %>
+              <% end %>
+            <% end %>
+          </div>
+          <div style="width:100%; margin:15px 0 30px 0; border-top:1px dashed #e6e6e6;"></div>
 
-      <p>
-        <%= f.label :postal %><br>
-        <%= f.text_field :postal %>
-      </p>
+          <div class="mem_form_line_full">
+            <%= f.check_box :email_communications, id: "email_communications" %>
+				 		<%= f.label :email_communications, "Yes, I would like to receive emails from EMPLO" %>
 
-      <p>
-        <%= f.label :phone %><br>
-        <%= f.text_field :phone %>
-      </p>
-
-      <p>
-        <%= f.label :notes %><br>
-        <%= f.text_area :notes %>
-      </p>
-
-      <p>
-        <%= f.label :membership_type_id %><br>
-        <%= f.select(:membership_type_id) do %>
-          <% @membership_types.each do |membership_type| -%>
-            <%= content_tag(:option, membership_type.display_name, value: membership_type.id) %>
-          <% end %>
+          </div>
+          <div class="mem_form_line_full">
+            <%= f.submit %>
+          </div>
         <% end %>
-      </p>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4 no_pad">
+      <div class="mem_right_shell">
+        <div style="width:100%; margin:15px 0 30px 0; border-top:4px solid #e6e6e6;" class="visible-sm visible-xs"></div>
+        <div class="mem_col_head_shell mail">
+          Register <span>By Mail</span>
+        </div>
+        <div class="mem_col_right_num">1</div>
+        <div class="mem_col_right_body">Download, print and fill out the registration form PDF</div>
+        <a href="#"><div class="mem_col_right_btn">Download</div></a>
+        <div class="mem_col_right_num">2</div>
+        <div class="mem_col_right_body">Send your payment and completed registration form to:</div>
+        <div class="mem_col_right_body"><span>Eagle Moose Lake Property Owners Association (EMLPO)</span></div>
+        <div class="mem_col_right_address">1048 Elk Drive<br>
+Eagle Lake, 0N<br>
+K0M 1M0</div>
+        <div class="mem_col_right_img">
+          <img src="/assets/mem_sidebar.jpg" class="img-responsive hidden-sm hidden-xs"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-      <p>
-        <%= radio_button_tag(:email_communications, "email_communications_yes") %>
-        <%= label_tag(:email_communications, "Yes, I would like to receive emails from EMPLO") %>
-
-      </p>
-
-      <p>
-        <%= f.submit %>
-      </p>
-    <% end %>
+<div class="bot_tag_shell">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 no_pad">
+        <div class="bot_tag_head">To receive the benefits <br class="visible-xs">of an EMPLO <br class="hidden-xs">membership, <br class="visible-xs"><span>sign up today!</span></div>
+        <a href="#"><div class="bot_tag_btn">Click here to sign up</div></a>
+      </div>
+    </div>
   </div>
 </div>

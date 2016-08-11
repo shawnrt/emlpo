@@ -1,2 +1,52 @@
-<h1>Membership#index</h1>
-<p>Find me in app/views/membership/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 no_pad" style="border-left:1px solid #e6e6e6; border-right:0px solid #e6e6e6;">
+      <div class="section_top_img">
+        <img src="/assets/mem_top_img.jpg" class="img-responsive">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container container_style">
+  <div class="row" style="margin-top:40px;">
+    <div class="col-sm-12 col-md-12 col-lg-12 no_pad">
+      <div class="about_head">
+        All <span>EMLPO Memberships</span>
+      </div>
+
+    </div>
+  </div>
+  <div class="row" style="margin-top:0px;">
+    <div class="col-sm-12 col-md-12 col-lg-12 no_pad">
+      <div class="con_table_shell">
+        <div class="table-responsive" style="border:0 !important;">
+          <table class="table">
+            <thead>
+              <tr class="tr_head">
+                <td>Name</td>
+                <td>Phone Number</td>
+                <td>Email Address</td>
+                <td>Next Payment Due</td>
+                <td></td>
+              </tr>
+            </thead>
+            <tbody>
+            <% @memberships.each do |membership| %>
+              <tr class="tr_body">
+                <td class="td_con_1"><%= membership.first_name %> <%= membership.last_name %></td>
+                <td class="td_con_2"><%= membership.phone %></td>
+                <td class="td_con_3"><%= membership.email %></td>
+                <td class="td_con_4"><%= membership.next_paid_time.strftime("%B %e, %Y") %></td>
+                <td class="td_con_5"><a href="/memberships/<%= membership.id %>">View</a></td>
+              </tr>
+            <% end %>
+
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
