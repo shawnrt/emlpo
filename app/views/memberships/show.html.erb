@@ -63,7 +63,7 @@
           Membership Type: <span><%= @membership.membership_type.name %></span>
         </div>
         <div class="mem_show_line">
-          Membership Type: <span><%= @membership.membership_type.duration_years %> year(s)</span>
+          Membership Type: <span><%= @membership.membership_type.duration_years %> year<%= @membership.membership_type.pluralize %></span>
         </div>
         <div class="mem_show_line">
           Membership Type: <span>$<%= @membership.membership_type.price_cdn %></span>

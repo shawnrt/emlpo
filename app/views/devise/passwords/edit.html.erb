@@ -1,10 +1,31 @@
-<h2>Change your password</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 no_pad" style="border-left:1px solid #e6e6e6; border-right:0px solid #e6e6e6;">
+      <div class="section_top_img">
+        <img src="/assets/mem_top_img.jpg" class="img-responsive">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container container_style">
+  <div class="row" style="margin-top:40px;">
+    <div class="col-sm-12 col-md-12 col-lg-12 no_pad">
+      <div class="about_head">
+        <span>Change Your Password</span>
+      </div>
+      <div class="about_body">
+        Change your login password below.
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top:16px; margin-bottom:40px;">
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
+  <div class="mem_form_line_full">
     <%= f.label :password, "New password" %><br />
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em><br />
@@ -12,14 +33,16 @@
     <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
   </div>
 
-  <div class="field">
+  <div class="mem_form_line_full">
     <%= f.label :password_confirmation, "Confirm new password" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
+  <div class="mem_form_line_full">
+    <%= f.submit "Change password", class: "mem_form_btn", style: "margin-top:20px;" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+</div>
+</div>

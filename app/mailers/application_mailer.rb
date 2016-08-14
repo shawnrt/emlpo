@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'EMLPO <info@emlpo.ca'
   layout 'mailer'
 end

@@ -1,0 +1,22 @@
+<p>Hello <%= @membership.first_name %> <%= @membership.last_name %>!</p>
+
+<p>Thank you for your support. Your membership details are below.</p>
+
+<p>
+    First Name: <%= @membership.first_name %><br>
+    Last Name:  <%= @membership.last_name %><br>
+    Company Name: <%= @membership.company_name %><br>
+    Email Address:  <%= @membership.email %><br>
+    Mailing Address:  <%= @membership.address %><br>
+    City:  <%= @membership.city %><br>
+    Province:  <%= @membership.province %><br>
+    Postal Code:  <%= @membership.postal %><br>
+    Phone Number:  <%= @membership.phone %><br>
+    Notes:  <%= @membership.notes %> <br>
+    Last Paid:  <%= @membership.last_paid_time.strftime("%B %e, %Y at %I:%M %p") %><br>
+    Next Payment Due:  <%= @membership.next_paid_time.strftime("%B %e, %Y at %I:%M %p") %><br>
+    Email Communications:  <%= @membership.email_communications %><br>
+    Membership Type:  <%= @membership.membership_type.name %><br>
+    Membership Length:  <%= @membership.membership_type.duration_years %> year<%= @membership.membership_type.pluralize %><br>
+    Membership Price:  $<%= @membership.membership_type.price_cdn %>
+</p>

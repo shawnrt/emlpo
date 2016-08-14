@@ -1,26 +1,52 @@
-<h2>Log in</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 no_pad" style="border-left:1px solid #e6e6e6; border-right:0px solid #e6e6e6;">
+      <div class="section_top_img">
+        <img src="/assets/mem_top_img.jpg" class="img-responsive">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container container_style">
+  <div class="row" style="margin-top:40px;">
+    <div class="col-sm-12 col-md-12 col-lg-12 no_pad">
+      <div class="about_head">
+        <span>Login</span>
+      </div>
+      <div class="about_body">
+        Login to your EMLPO account below.
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top:16px; margin-bottom:40px;">
+
+
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="mem_form_line_full">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <div class="field">
+  <div class="mem_form_line_full">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
+    <div class="mem_form_line_full">
+      <%= f.check_box :remember_me, style: "margin-right:10px;" %>
       <%= f.label :remember_me %>
     </div>
   <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="mem_form_line_full">
+    <%= f.submit "Log in", class: "mem_form_btn" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+<div class="mem_form_botlink">
+  <a href="/users/password/new">Forgot your Password?</a>
+</div>
+</div>
+</div>

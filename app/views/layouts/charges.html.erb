@@ -24,39 +24,40 @@
 
   <body>
     <nav id="menu" class="menu">
-      <div class="mob_menu_head"></div>
-      <div class="mob_menu_subhead">Eagle Moose Lake<br>Property Owners Association</div>
-      <% if current_user.nil? %>
-      <a href="/">
-        <div class="mob_menu_line <%= 'active' if current_page?("/") %>">Home</div>
+      <a href="/wallet">
+        <div class="mob_menu_line wallet">Bitcoin Wallet</div>
       </a>
-      <a href="/about">
-        <div class="mob_menu_line <%= 'active' if current_page?("/about") %>">About Us</div>
+      <a href="/marketplace">
+        <div class="mob_menu_line mp" style="border-bottom:0;">Marketplace</div>
       </a>
-      <a href="/resources">
-        <div class="mob_menu_line <%= 'active' if current_page?("/resources") %>">Resources</div>
+      <a href="/buybitcoin">
+        <div class="mob_menu_line_sub">Buy bitcoins</div>
       </a>
-      <a href="/memberships">
-        <div class="mob_menu_line <%= 'active' if current_page?("/memberships/new") %>">Membership</div>
+      <a href="/sellbitcoin">
+        <div class="mob_menu_line_sub">Sell bitcoins</div>
       </a>
-      <a href="/contact">
-        <div class="mob_menu_line <%= 'active' if current_page?("/contact") %>" style="border-bottom:0;">Contact</div>
+      <a href="/login">
+        <div class="mob_menu_line_sub">Login</div>
       </a>
-      <% else %>
-      <a href="/memberships">
-        <div class="mob_menu_line <%= 'active' if current_page?("/memberships") %>">All Memberships</div>
+      <a href="/signup">
+        <div class="mob_menu_line_sub" style="border-bottom:0;">Signup</div>
       </a>
-      <div class="mob_menu_line"><%= button_to "Logout", "/users/sign_out", method: :delete, class: "mob_logout"  %></div>
-
-      <% end %>
+      <a href="/support">
+        <div class="mob_menu_line settings">FAQ & Support</div>
+      </a>
+      <a href="/voyager">
+        <div class="mob_menu_line voyager" style="border-bottom:0;">Block Explorer</div>
+      </a>
     </nav>
     <main id="panel" class="panel" style="border:0; margin:0; padding:0; border-radius:0;">
+      <p class="notice" style="display:none;"><%= notice %></p>
+      <p class="alert" style="display:none;"><%= alert %></p>
       <% if flash[:error] %>
-        <div class="flash_shell_error"><%= flash[:error] %></div>
+        <% flash.each do |type, msg| %>
+          <div><%= type %><%= msg %></div>
+        <% end %>
       <% end %>
-      <% if flash[:notice] %>
-        <div class="flash_shell_notice"><%= flash[:notice] %></div>
-      <% end %>
+
       <div class="container">
         <div class="row">
           <div class="top_shell">
@@ -64,7 +65,7 @@
             <% if current_user.nil? %>
             <div class="top_nav_shell">
               <div class="top_nav <%= 'active' if current_page?("/contact") %>"><a href="/contact">Contact</a></div>
-              <div class="top_nav <%= 'active' if current_page?("/memberships/new") %>"><a href="/memberships">Membership</a></div>
+              <div class="top_nav <%= 'active' if current_page?("/memberships/new") %>"><a href="/memberships/new">Membership</a></div>
               <div class="top_nav <%= 'active' if current_page?("/resources") %>"><a href="/resources">Resources</a></div>
               <div class="top_nav <%= 'active' if current_page?("/about") %>"><a href="/about">About Us</a></div>
               <div class="top_nav <%= 'active' if current_page?("/") %>" style="margin-left:0;"><a href="/">Home</a></div>
@@ -75,7 +76,6 @@
                 <div class="top_nav"><%= button_to "Logout", "/users/sign_out", method: :delete, class: "top_nav_logout"  %></div>
 
                 <div class="top_nav <%= 'active' if current_page?("/memberships") %>"><a href="/memberships">All Memberships</a></div>
-                <div class="top_nav"><a href="/memberships"><%= current_user.email %></a></div>
               </div>
             <% end %>
 
@@ -92,7 +92,7 @@
             <div class="bot_shell">
               <div class="bot_nav_shell hidden-xs hidden-sm">
                 <div class="bot_nav <%= 'active' if current_page?("/contact") %>"><a href="/contact">Contact</a></div>
-                <div class="bot_nav <%= 'active' if current_page?("/memberships/new") %>"><a href="/memberships">Membership</a></div>
+                <div class="bot_nav <%= 'active' if current_page?("/memberships/new") %>"><a href="/memberships/new">Membership</a></div>
                 <div class="bot_nav <%= 'active' if current_page?("/resources") %>"><a href="/resources">Resources</a></div>
                 <div class="bot_nav <%= 'active' if current_page?("/about") %>"><a href="/about">About Us</a></div>
                 <div class="bot_nav <%= 'active' if current_page?("/") %>" style="margin-left:0;"><a href="/">Home</a></div>

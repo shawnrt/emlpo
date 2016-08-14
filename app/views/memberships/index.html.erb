@@ -32,13 +32,43 @@
               </tr>
             </thead>
             <tbody>
-            <% @memberships.each do |membership| %>
+            <% @memberships.sort_by{ |t| t.next_paid_time }.each do |membership| %>
               <tr class="tr_body">
-                <td class="td_con_1"><%= membership.first_name %> <%= membership.last_name %></td>
-                <td class="td_con_2"><%= membership.phone %></td>
-                <td class="td_con_3"><%= membership.email %></td>
-                <td class="td_con_4"><%= membership.next_paid_time.strftime("%B %e, %Y") %></td>
-                <td class="td_con_5"><a href="/memberships/<%= membership.id %>">View</a></td>
+                <td class="td_member_1"><%= membership.first_name %> <%= membership.last_name %></td>
+                <td class="td_member_2"><%= membership.phone %></td>
+                <td class="td_member_3"><%= membership.email %></td>
+                <td class="td_member_4"><%= membership.next_paid_time.strftime("%B %e, %Y") %></td>
+                <td class="td_member_5"><a href="/memberships/<%= membership.id %>">View</a></td>
+              </tr>
+            <% end %>
+
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="about_head">
+        Email <span>Communications</span>
+      </div>
+
+      <div class="con_table_shell">
+        <div class="table-responsive" style="border:0 !important;">
+          <table class="table">
+            <thead>
+              <tr class="tr_head">
+                <td>Name</td>
+                <td>Email Address</td>
+                <td></td>
+
+              </tr>
+            </thead>
+            <tbody>
+            <% @memberships.select{ |t| t.email_communications }.each do |membership| %>
+              <tr class="tr_body">
+                <td class="td_con_email_1"><%= membership.first_name %> <%= membership.last_name %></td>
+                <td class="td_con_email_2"><%= membership.email %></td>
+                <td class="td_con_email_3"><a href="/memberships/<%= membership.id %>">View</a></td>
+
               </tr>
             <% end %>
 
