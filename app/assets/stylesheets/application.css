@@ -316,7 +316,7 @@ input:focus {
 
 .top_nav a {
   cursor:pointer;
-  font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#7d7d7d; font-size:15px; line-height:15px;
+  font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#7d7d7d;
   transition: opacity .15s ease-in-out;
      -moz-transition: opacity .15s ease-in-out;
      -webkit-transition: opacity .15s ease-in-out;
@@ -351,12 +351,12 @@ input:focus {
   }
 
 .top_nav.active {
-  font-family:'roboto_medium', Verdana, Geneva, sans-serif; color:#1e7092; font-size:15px; line-height:15px;
+  font-family:'roboto_medium', Verdana, Geneva, sans-serif; color:#1e7092;
 
 }
 
 .top_nav.active a {
-  font-family:'roboto_medium', Verdana, Geneva, sans-serif; color:#1e7092; font-size:15px; line-height:15px;
+  font-family:'roboto_medium', Verdana, Geneva, sans-serif; color:#1e7092;
   transition: opacity .15s ease-in-out;
      -moz-transition: opacity .15s ease-in-out;
      -webkit-transition: opacity .15s ease-in-out;
@@ -514,7 +514,7 @@ input:focus {
 
 .bot_nav a {
   cursor:pointer;
-  font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#8fb8c9; font-size:15px; line-height:15px;
+  font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#8fb8c9;
   transition: opacity .15s ease-in-out;
      -moz-transition: opacity .15s ease-in-out;
      -webkit-transition: opacity .15s ease-in-out;
@@ -528,12 +528,12 @@ input:focus {
 }
 
 .bot_nav.active {
-  font-family:'roboto_medium', Verdana, Geneva, sans-serif; color:#ffffff; font-size:15px; line-height:15px;
+  font-family:'roboto_medium', Verdana, Geneva, sans-serif; color:#ffffff;
 
 }
 
 .bot_nav.active a {
-  font-family:'roboto_medium', Verdana, Geneva, sans-serif; color:#ffffff; font-size:15px; line-height:15px;
+  font-family:'roboto_medium', Verdana, Geneva, sans-serif; color:#ffffff;
   transition: opacity .15s ease-in-out;
      -moz-transition: opacity .15s ease-in-out;
      -webkit-transition: opacity .15s ease-in-out;
@@ -772,6 +772,27 @@ input:focus {
   font-family:'roboto_light', Verdana, Geneva, sans-serif; color:#7d7d7d; font-size:17px; line-height:23px;
   margin:0px 0 20px 0;
 }
+
+.about_body a {
+  font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#7d7d7d; font-size:17px; line-height:23px;
+  margin:0px 0 20px 0;
+  transition: opacity .15s ease-in-out;
+     -moz-transition: opacity .15s ease-in-out;
+     -webkit-transition: opacity .15s ease-in-out;
+  }
+
+.about_body a:hover {
+  filter: alpha(opacity=70);
+  -khtml-opacity: 0.7;
+  -moz-opacity: 0.7;
+  opacity: 0.7;
+}
+
+.about_body span {
+  font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#1e7092; font-size:17px; line-height:23px;
+  margin:0px 0 20px 0;
+}
+
 
 .about_head_2 {
   font-family:'roboto_light', Verdana, Geneva, sans-serif; color:#b0b0b0; font-size:28px; line-height:28px;
@@ -1237,7 +1258,7 @@ input:focus {
 
 .charge_greyshell {
   padding:40px;
-  margin-bottom:40px;
+  margin:0 -50px 40px -50px;
   background-color:#fafafa;
   border-radius:3px;
 }
@@ -1583,6 +1604,69 @@ td {border-top:0 !important; padding-left:0 !important;}
   font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#7d7d7d; font-size:15px; line-height:20px;
 }
 
+/* Success */
+
+.success_check {
+  width:100px;
+  height:100px;
+  margin:30px auto 30px auto;
+  background-image:url(/assets/circ_check.svg);
+	background-position:0 0;
+	background-repeat:no-repeat;
+	background-size:100px auto;
+
+}
+
+.success_head {
+  font-family:'roboto_medium', Verdana, Geneva, sans-serif; color:#1e7092; font-size:36px; line-height:36px;
+  text-align:center;
+}
+
+.success_head span {
+  font-family:'roboto_light', Verdana, Geneva, sans-serif; color:#7d7d7d; font-size:24px; line-height:32px;
+  text-align:center;
+}
+
+.success_body {
+  border-top:1px dashed #e6e6e6;
+  margin:30px 0 0 0;
+  padding:30px 0 0 0;
+  text-align:center;
+  font-family:'roboto_light', Verdana, Geneva, sans-serif; color:#7d7d7d; font-size:17px; line-height:23px;
+
+}
+
+.success_body a {
+  border-top:1px dashed #e6e6e6;
+  padding:30px 0 0 0;
+  font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#1e7092;
+
+}
+
+.success_body span {
+  font-family:'roboto_light', Verdana, Geneva, sans-serif; color:#1e7092;
+}
+
+.success_body_btn {
+    font-family:'roboto_medium', Verdana, Geneva, sans-serif; color:#ffffff; font-size:15px; line-height:15px;
+    border:1px solid #1e7092;
+    background-color:#1e7092;
+    border-radius:3px;
+    width:210px;
+    margin:40px auto 30px auto;
+    padding:10px 20px 10px 20px;
+    text-align:center;
+    transition: opacity .15s ease-in-out;
+       -moz-transition: opacity .15s ease-in-out;
+       -webkit-transition: opacity .15s ease-in-out;
+    }
+
+    .success_body_btn:hover {
+    filter: alpha(opacity=70);
+    -khtml-opacity: 0.7;
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+    }
 
 
 /* *******************
@@ -1706,6 +1790,31 @@ td {border-top:0 !important; padding-left:0 !important;}
     margin:0 0 0 0;
   }
 
+  .top_nav {
+    margin:0 0 0 30px;
+    font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#7d7d7d; font-size:14px; line-height:15px;
+
+  }
+
+  .bot_nav {
+    margin:0 0 0 25px;
+    font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#8fb8c9; font-size:14px; line-height:15px;
+  }
+
+  .charge_greyshell {
+    padding:40px;
+    margin:0 -15px 40px -15px;
+  }
+
+  .charge_left_shell {
+    border-right:1px solid #e6e6e6;
+    margin:0 50px 0 0;
+    padding:0 30px 0 0;
+  }
+
+  .charge_right_shell {
+    margin:0 0 0 0;
+  }
 
 
 
@@ -1742,15 +1851,7 @@ td {border-top:0 !important; padding-left:0 !important;}
     margin:0 0 0 0;
   }
 
-  .charge_left_shell {
-    border-right:1px solid #e6e6e6;
-    margin:0 50px 0 0;
-    padding:0 30px 0 0;
-  }
 
-  .charge_right_shell {
-    margin:0 0 0 0;
-  }
 
 
 
@@ -1776,6 +1877,17 @@ td {border-top:0 !important; padding-left:0 !important;}
     float:left;
     width:65%;
     margin:50px 0 0 0;
+  }
+
+  .top_nav {
+    margin:0 0 0 45px;
+    font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#7d7d7d; font-size:15px; line-height:15px;
+
+  }
+
+  .bot_nav {
+    margin:0 0 0 35px;
+    font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#8fb8c9; font-size:15px; line-height:15px;
   }
 
 

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'resources' => 'resources#index'
   get 'contact' => 'contact#index'
   get 'letter' => 'letter#index'
+  get 'advertising' => 'advertising#index'
+  get 'success' => 'success#index'
 
   resources :memberships do |memberships|
     resources :charges

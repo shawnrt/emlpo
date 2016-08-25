@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="row charge_greyshell" style="margin-top:16px;">
-      <div class="col-sm-6 col-md-6 col-lg-6 no_pad">
+      <div class="col-sm-7 col-md-6 col-lg-6 no_pad">
         <div class="charge_left_shell">
           <div class="charge_show_shell">
             <div class="charge_show_head">
@@ -50,8 +50,9 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md-6 col-lg-6 no_pad">
+      <div class="col-sm-5 col-md-6 col-lg-6 no_pad">
         <div class="charge_right_shell">
+          <div style="border-top:4px solid #e6e6e6; margin:40px 0 0 0; padding:10px 0 0 0;" class="visible-xs"></div>
           <%= form_tag "/memberships/#{@membership.id}/charges" do %>
           <div class="charge_total_icon"></div>
               <% if flash[:error].present? %>

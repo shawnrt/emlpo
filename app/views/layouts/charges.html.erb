@@ -39,6 +39,9 @@
       <a href="/memberships">
         <div class="mob_menu_line <%= 'active' if current_page?("/memberships/new") %>">Membership</div>
       </a>
+      <a href="/advertising">
+        <div class="mob_menu_line <%= 'active' if current_page?("/advertising") %>">Advertising</div>
+      </a>
       <a href="/contact">
         <div class="mob_menu_line <%= 'active' if current_page?("/contact") %>" style="border-bottom:0;">Contact</div>
       </a>
@@ -64,6 +67,7 @@
             <% if current_user.nil? %>
             <div class="top_nav_shell">
               <div class="top_nav <%= 'active' if current_page?("/contact") %>"><a href="/contact">Contact</a></div>
+              <div class="top_nav <%= 'active' if current_page?("/advertising") %>"><a href="/advertising">Advertising</a></div>
               <div class="top_nav <%= 'active' if current_page?("/memberships/new") %>"><a href="/memberships">Membership</a></div>
               <div class="top_nav <%= 'active' if current_page?("/resources") %>"><a href="/resources">Resources</a></div>
               <div class="top_nav <%= 'active' if current_page?("/about") %>"><a href="/about">About Us</a></div>
@@ -90,16 +94,17 @@
         <div class="container">
           <div class="row">
             <div class="bot_shell">
-              <div class="bot_nav_shell hidden-xs hidden-sm">
+              <div class="bot_nav_shell hidden-xs ">
                 <div class="bot_nav <%= 'active' if current_page?("/contact") %>"><a href="/contact">Contact</a></div>
+                <div class="bot_nav <%= 'active' if current_page?("/advertising") %>"><a href="/advertising">Advertising</a></div>
                 <div class="bot_nav <%= 'active' if current_page?("/memberships/new") %>"><a href="/memberships">Membership</a></div>
                 <div class="bot_nav <%= 'active' if current_page?("/resources") %>"><a href="/resources">Resources</a></div>
                 <div class="bot_nav <%= 'active' if current_page?("/about") %>"><a href="/about">About Us</a></div>
                 <div class="bot_nav <%= 'active' if current_page?("/") %>" style="margin-left:0;"><a href="/">Home</a></div>
               </div>
               <div class="bot_logo"></div>
-              <div class="bot_tag">Eagle Moose Lake<br>Property Owners Association</div>
-              <div class="bot_logo_icon hidden-xs hidden-sm"></div>
+              <div class="bot_tag hidden-sm">Eagle Moose Lake<br>Property Owners Association</div>
+              <div class="bot_logo_icon hidden-xs hidden-sm hidden-md"></div>
               <div class="clearfix"></div>
             </div>
           </div>

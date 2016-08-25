@@ -48,10 +48,9 @@ def create
     })
 
     if charge.errors.empty?
+      redirect_to "/success"
       NewMembershipMailer.welcome_email(@membership).deliver_now
       NewMembershipMailer.welcome_email_admin(@membership).deliver_now
-      redirect_to "/"
-      flash[:notice] = "Membership and charge created successfully."
     else
       redirect_to "/memberships/#{@membership.id}/charges/new"
       flash[:error] = "There was a problem charging your account. Please check all fields and try again."
