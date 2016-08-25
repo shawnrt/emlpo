@@ -9,6 +9,10 @@ class MembershipType < ApplicationRecord
     "#{name} - #{duration.to_i / 12} year#{pluralize}"
   end
 
+  def display_name_long
+    "#{name} Membership - #{duration.to_i / 12} year#{pluralize}"
+  end
+
   def display_name_price_cdn
     "#{name} - #{duration.to_i / 12} year#{pluralize} - #{price / 100}.00 CDN"
   end
@@ -19,6 +23,10 @@ class MembershipType < ApplicationRecord
 
   def price_cdn
     "#{price / 100}.00 CDN"
+  end
+
+  def price_dollar
+    "#{price / 100}.00"
   end
 
 end

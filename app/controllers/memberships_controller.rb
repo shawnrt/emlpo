@@ -1,5 +1,5 @@
 class MembershipsController < ApplicationController
-  before_action :authenticate_user!, :except => [:index, :create, :new]
+  before_action :authenticate_user!, :except => [:index, :create, :new, :edit]
   def index
     @memberships = Membership.all
     if current_user.nil?
@@ -9,6 +9,10 @@ class MembershipsController < ApplicationController
   def new
     @membership_types = MembershipType.all
   end
+  def edit
+    @membership = Membership.find(params[:id])
+    @membership_types = MembershipType.all
+  end
   def show
     @membership = Membership.find(params[:id])
   end
@@ -16,13 +20,17 @@ class MembershipsController < ApplicationController
     puts params
     params[:memberships].permit!
     @membership = Membership.create(params[:memberships])
-    if @membership.save
-      # Tell the UserMailer to send a welcome email after save
-      NewMembershipMailer.welcome_email(@membership).deliver_now
-    end
     if @membership.errors.empty?
-      redirect_to "/"
-      flash[:notice] = "Membership created successfully."
+      redirect_to "/memberships/#{@membership.id}/charges/new"
+    else
+      redirect_to "/memberships/new"
+      flash[:error] = "There was a problem creating your membership. Please check all fields and try again."
+    end
+  end
+  def update
+    @membership = Membership.update(params[:memberships])
+    if @membership.errors.empty?
+      redirect_to "/memberships/#{@membership.id}/charges/new"
     else
       redirect_to "/memberships/new"
       flash[:error] = "There was a problem creating your membership. Please check all fields and try again."

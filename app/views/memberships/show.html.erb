@@ -69,6 +69,38 @@
           Membership Type: <span>$<%= @membership.membership_type.price_cdn %></span>
         </div>
     </div>
+  </div>
+</div>
+<div class="row" style="margin-top:40px;">
+  <div class="col-sm-12 col-md-12 col-lg-12 no_pad">
+    <div class="about_head">
+      Charges for <span><%= @membership.first_name %> <%= @membership.last_name %></span>
+    </div>
+
+  </div>
+</div>
+<div class="row" style="margin-top:0px;">
+  <div class="col-sm-12 col-md-12 col-lg-12 no_pad">
+    <% @membership.charges.each do |charge| %>
+      <div class="mem_show_grey" style="margin-bottom:20px;">
+        <div class="mem_show_line">
+          Payment Made: <span><%= charge.last_paid_time.strftime("%B %e, %Y at %I:%M %p") %></span>
+        </div>
+        <div class="mem_show_line">
+          Amount: <span><%= charge.price_cdn %></span>
+        </div>
+        <div class="mem_show_line">
+          Type: <span><%= charge.duration_name %></span>
+        </div>
+        <div class="mem_show_line">
+          Stripe Charge ID: <span><%= charge.charge_id %></span>
+        </div>
+        <div class="mem_show_line">
+          Stripe Customer ID: <span><%= charge.customer_id %></span>
+
+        </div>
+      </div>
+    <% end %>
     </div>
   </div>
 

@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802142842) do
+ActiveRecord::Schema.define(version: 20160824170149) do
+
+  create_table "charges", force: :cascade do |t|
+    t.integer  "membership_id"
+    t.string   "stripe_token"
+    t.string   "customer_id"
+    t.string   "charge_id"
+    t.integer  "membership_type_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["membership_id"], name: "index_charges_on_membership_id"
+    t.index ["membership_type_id"], name: "index_charges_on_membership_type_id"
+  end
 
   create_table "membership_types", force: :cascade do |t|
     t.string   "name"
@@ -40,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160802142842) do
     t.boolean  "email_communications"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.text     "token"
     t.index ["membership_type_id"], name: "index_memberships_on_membership_type_id"
   end
 

@@ -59,8 +59,8 @@ Rails.application.configure do
     :address => "smtp.mailgun.org",
     :port => 587,
     :domain => "mg.emlpo.ca",
-    :user_name => "postmaster@mg.emlpo.ca",
-    :password => "c01170af93893b2ed296450fa93b3456"
+    :user_name => "shawn@mg.emlpo.ca",
+    :password => "fkyl512I557!"
 }
 
 config.action_mailer.raise_delivery_errors = :true

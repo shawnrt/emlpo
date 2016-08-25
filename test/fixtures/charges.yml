@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  membership: one
+  stripe_token: MyString
+  customer_id: MyString
+  charge_id: MyString
+  membership_type: one
+
+two:
+  membership: two
+  stripe_token: MyString
+  customer_id: MyString
+  charge_id: MyString
+  membership_type: two

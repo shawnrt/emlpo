@@ -10,5 +10,13 @@ class NewMembershipMailer < ApplicationMailer
 
   end
 
+  def welcome_email_admin(membership)
+    @membership = membership
+    mail({to: 'sbutchart@patientnews.com',
+          subject: 'New Membership',
+          from: "EMLPO <membership@emlpo.ca>"})
+
+  end
+
 
 end

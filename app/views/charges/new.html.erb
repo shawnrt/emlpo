@@ -1,18 +1,98 @@
-<%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 no_pad" style="border-left:1px solid #e6e6e6; border-right:0px solid #e6e6e6;">
+      <div class="section_top_img">
+        <img src="/assets/mem_top_img.jpg" class="img-responsive">
       </div>
-    <% end %>
-    <label class="amount">
-      <span>Amount: $5.00</span>
-    </label>
-  </article>
+    </div>
+  </div>
+</div>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="500"
-          data-locale="auto"></script>
-<% end %>
+<div class="container container_style">
+  <div class="row" style="margin-top:40px;">
+    <div class="col-sm-12 col-md-12 col-lg-12 no_pad">
+      <div class="charge_head">
+        Pay for your <span>EMLPO Membership</span>
+      </div>
+      <div class="charge_body">
+        Thank you for choosing to support the EMLPO with your membership. Confirm your details and click 'Pay now' to pay and finish your registration.
+      </div>
+
+    </div>
+  </div>
+  <div class="row charge_greyshell" style="margin-top:16px;">
+      <div class="col-sm-6 col-md-6 col-lg-6 no_pad">
+        <div class="charge_left_shell">
+          <div class="charge_show_shell">
+            <div class="charge_show_head">
+              <%= @membership.first_name %> <%= @membership.last_name %>
+            </div>
+            <div class="charge_show_sub">
+              <%= @membership.membership_type.display_name_long %>
+            </div>
+            <div class="charge_address">
+              <%= @membership.address %><br>
+              <%= @membership.city %>,
+              <%= @membership.province %><br>
+              <%= @membership.postal %>
+            </div>
+            <div class="charge_address">
+              <span>Email:</span><br><%= @membership.email %><br><br>
+              <span>Phone Number:</span><br><%= @membership.phone %>
+            </div>
+            <div class="charge_address">
+              <span>Notes:</span><br>
+              <%= @membership.notes %>
+            </div>
+            <div class="charge_edit_btn_shell">
+              <a href="/memberships/<%= @membership.id %>/edit"><div class="charge_edit_btn">Edit</div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6 no_pad">
+        <div class="charge_right_shell">
+          <%= form_tag "/memberships/#{@membership.id}/charges" do %>
+          <div class="charge_total_icon"></div>
+              <% if flash[:error].present? %>
+                <div class="flash_shell_error">
+                  <%= flash[:error] %>
+                </div>
+              <% end %>
+            <div class="charge_total_shell">
+              <div class="charge_total">$<%= @membership_type.price_dollar %> <span>CDN</span></div>
+              <div class="charge_total_sub"><%= @membership_type.display_name_long %></div>
+            </div>
+
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="pk_test_3Xf2wmCeXMSmfai87ZxxGiwh"
+                    data-name="EMLPO Membership"
+                    data-description="<%= @membership_type.display_name %>"
+                    data-email="<%= @membership.email %>"
+                    data-image="/assets/charge_logo.png"
+                    data-label="Pay Now and Create Membership"
+                    data-allowRememberMe=false
+                    data-amount="<%= @membership_type.price %>"
+                    data-locale="auto"></script>
+          <% end %>
+          <div class="charge_cc_shell">
+            <img src="/assets/cc_visa.svg">
+            <img src="/assets/cc_mc.svg">
+            <img src="/assets/cc_aa.svg">
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+  </div>
+</div>
+
+<div class="bot_tag_shell">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 no_pad">
+        <div class="bot_tag_head"><span>Contact us</span> to learn more <br class="visible-xs">about EMLPO <br class="hidden-xs">and what <br class="visible-xs">a membership has <br class="visible-xs">to offer.</div>
+        <a href="#"><div class="bot_tag_btn">Contact EMLPO</div></a>
+      </div>
+    </div>
+  </div>
+</div>
