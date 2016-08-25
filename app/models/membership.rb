@@ -10,6 +10,9 @@ class Membership < ApplicationRecord
   validates :postal, presence: true
   validates :phone, presence: true
   validates :membership_type_id, presence: true
+  #validates :token, unique: true
+
+  before_create :generate_token
 
   def last_paid_time
     created_at - 4.hours
@@ -25,6 +28,11 @@ class Membership < ApplicationRecord
     email_communications == "true"
   end
 
-
+  def generate_token
+    self.token ||= loop do
+      random_token = SecureRandom.urlsafe_base64(nil, false)
+      break random_token unless Membership.exists?(token: random_token)
+    end
+  end
 
 end

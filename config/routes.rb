@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get 'advertising' => 'advertising#index'
   get 'success' => 'success#index'
 
+  get "/login/:token" => "memberships#login"
+  get "/logout" => "memberships#logout"
+
+
   resources :memberships do |memberships|
     resources :charges
   end

@@ -1,7 +1,9 @@
 class ChargesController < ApplicationController
+  before_filter :load_membership
+  before_filter :login_from_session!
+  before_filter :ensure_authenticated!
 
 def new
-  @membership = Membership.find(params[:membership_id])
   if @membership.nil?
     flash[:error] = "membership not found"
     redirect_to "/"
@@ -10,16 +12,13 @@ def new
 end
 
 def index
-  @membership = Membership.find(params[:membership_id])
 end
 
 def show
-  @membership = Membership.find(params[:membership_id])
   @charge = @membership.charges.find(params[:id])
 end
 
 def create
-  @membership = Membership.find(params[:membership_id])
   # Amount in cents
   @membership_type = @membership.membership_type
   @stripe_token = params[:stripe_token]
