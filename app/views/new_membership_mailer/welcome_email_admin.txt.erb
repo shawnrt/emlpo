@@ -1,1 +1,23 @@
-Tester
+New Membership Payment
+
+You have a new membership payment from <%= @membership.first_name %> <%= @membership.last_name %>. Their details are below. You can also login to the admin area at http://emlpo.ca/users/sign_in to view all memberships and charges.
+
+<%= @membership.first_name %> <%= @membership.last_name %>
+Company: <%= @membership.company_name %>
+
+<%= @membership.address %>, <%= @membership.city %> <%= @membership.province %>, <%= @membership.postal %>, Canada
+<%= @membership.email %>
+<%= @membership.phone %>
+
+---
+Membership / Payment Details
+
+<%= @membership.membership_type.name %> / <%= @membership.membership_type.duration_years %> year<%= @membership.membership_type.pluralize %>
+$<%= @membership.membership_type.price_cdn %><br><br>
+
+Paid: <%= @membership.last_paid_time.strftime("%B %e, %Y at %I:%M %p") %>
+Next Payment Due: <%= @membership.next_paid_time.strftime("%B %e, %Y") %>
+
+Notes:
+<%= @membership.notes %>
+                  

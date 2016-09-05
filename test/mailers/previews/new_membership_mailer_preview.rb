@@ -2,11 +2,11 @@
 class NewMembershipMailerPreview < ActionMailer::Preview
 
   def welcome_email
-    NewMembershipMailer.welcome_email(User.first)
+    NewMembershipMailer.welcome_email(Membership.last)
   end
 
   def welcome_email_admin
-    NewMembershipMailer.welcome_email_admin(User.first)
+    NewMembershipMailer.welcome_email_admin(Membership.last)
   end
 
 end

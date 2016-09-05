@@ -60,7 +60,7 @@ Rails.application.configure do
     :port => 587,
     :domain => "mg.emlpo.ca",
     :user_name => "shawn@mg.emlpo.ca",
-    :password => "fkyl512I557!"
+    :password => "BK2hs*Uh@!zE5TCL"
 }
 
 config.action_mailer.raise_delivery_errors = :true

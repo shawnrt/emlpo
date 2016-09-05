@@ -1,1 +1,24 @@
-Tester
+Welcome to EMLPO!
+Confirmation of your payment and new membership details are below.
+
+---
+<%= @membership.membership_type.name %> Membership - <%= @membership.membership_type.duration_years %> year<%= @membership.membership_type.pluralize %>
+
+Payment Amount: $<%= @membership.membership_type.price_cdn %> CAD
+Next Payment Due: <%= @membership.next_paid_time.strftime("%B %e, %Y") %>
+
+<%= @membership.first_name %> <%= @membership.last_name %>
+<%= @membership.company_name %>
+
+<%= @membership.address %>, <%= @membership.city %> <%= @membership.province %>, <%= @membership.postal %>, Canada
+Email:<%= @membership.email %>
+Phone:<%= @membership.phone %>
+
+---
+Contact EMLPO:
+1048 Elk Drive, Eagle Lake
+ON, K0M 1M0, Canada
+
+Email: info@emlpo.ca
+Facebook: www.facebook.com/groups/eaglemooselake/
+Twitter: www.twitter.com/eaglemooselake

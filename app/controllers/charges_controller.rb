@@ -22,7 +22,7 @@ def create
   # Amount in cents
   @membership_type = @membership.membership_type
   @stripe_token = params[:stripe_token]
-  Stripe.api_key = "sk_test_KeUhLBnmsGIZ3XYid8CUUIJo"
+  Stripe.api_key = "sk_test_gptqCO3O4z5kWVv6JSg76Xaq"
 
   customer = Stripe::Customer.create(
     :email => params[:stripeEmail],

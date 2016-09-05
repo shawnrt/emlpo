@@ -1,6 +1,6 @@
 class NewMembershipMailer < ApplicationMailer
 
-  default from: 'EMLPO <info@emlpo.ca'
+  default from: 'EMLPO <info@emlpo.ca>'
 
   def welcome_email(membership)
     @membership = membership

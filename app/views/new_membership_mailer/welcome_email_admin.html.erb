@@ -1,20 +1,124 @@
-<p>You have a new membership payment from <%= @membership.first_name %> <%= @membership.last_name %>. Their details are below. You can also login to the admin area <a href="http://localhost:3000/users/sign_in">here</a></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <title>EMLPO - New Membership</title>
+  <link href="/favicon.png" rel="shortcut icon">
+  <style type="text/css">
+            /* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
+            #outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
+            .ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */
+            .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing */
+            body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; -webkit-font-smoothing:antialiased;} /* Prevent WebKit and Windows mobile changing default text sizes */
+            table, td{mso-table-lspace:0pt; mso-table-rspace:0pt; -webkit-font-smoothing:antialiased;} /* Remove spacing between tables in Outlook 2007 and up */
+            img{-ms-interpolation-mode:bicubic;} /* Allow smoother rendering of resized image in Internet Explorer */
 
-<p>
-    First Name: <%= @membership.first_name %><br>
-    Last Name:  <%= @membership.last_name %><br>
-    Company Name: <%= @membership.company_name %><br>
-    Email Address:  <%= @membership.email %><br>
-    Mailing Address:  <%= @membership.address %><br>
-    City:  <%= @membership.city %><br>
-    Province:  <%= @membership.province %><br>
-    Postal Code:  <%= @membership.postal %><br>
-    Phone Number:  <%= @membership.phone %><br>
-    Notes:  <%= @membership.notes %> <br>
-    Last Paid:  <%= @membership.last_paid_time.strftime("%B %e, %Y at %I:%M %p") %><br>
-    Next Payment Due:  <%= @membership.next_paid_time.strftime("%B %e, %Y at %I:%M %p") %><br>
-    Email Communications:  <%= @membership.email_communications %><br>
-    Membership Type:  <%= @membership.membership_type.name %><br>
-    Membership Length:  <%= @membership.membership_type.duration_years %> year<%= @membership.membership_type.pluralize %><br>
-    Membership Price:  $<%= @membership.membership_type.price_cdn %>
-</p>
+            /* /\/\/\/\/\/\/\/\/ RESET STYLES /\/\/\/\/\/\/\/\/ */
+            body{margin:0; padding:0;}
+            img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none;}
+            table{border-collapse:collapse !important; }
+            body, #bodyTable, #bodyCell{height:100% !important; margin:0; padding:0; width:100% !important;}
+            a {
+                transition: opacity .15s ease-in-out;
+               -moz-transition: opacity .15s ease-in-out;
+               -webkit-transition: opacity .15s ease-in-out;
+            }
+
+            a:hover {
+                filter: alpha(opacity=70);
+              -khtml-opacity: 0.7;
+              -moz-opacity: 0.7;
+              opacity: 0.7;
+            }
+
+  </style>
+</head>
+<body bgcolor="#FAFAFA" style="background-color:#fafafa; background-repeat:repeat-x; padding:0; margin:0;">
+  <center>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+      <tr>
+        <td align="center" valign="top" width="600">
+          <!-- BEGIN TEMPLATE // -->
+          <table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0; -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2); box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);" width="600">
+            <tr>
+              <td align="center" valign="top">
+                <!-- BEGIN HEADER // -->
+                <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <td bgcolor="transparent" valign="top" width="600">
+                      <img src="http://cb3labs.ca/emlpo/mail_wel_head_2.jpg" width="600">
+                    </td>
+                  </tr>
+                </table><!-- // END HEADER -->
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <!-- // Begin Template Body \\ -->
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="512">
+                  <tr>
+                    <td style="padding-bottom:20px; font-family:Arial, Geneva, sans-serif; font-weight:bold; color:#1e7092; font-size:20px; line-height:20px; text-align:left; height:25px;"><font color="#1e7092">New Membership Payment</font></td>
+
+                  </tr>
+                  <tr>
+                    <td style="padding-bottom:25px; font-family:Arial, Geneva, sans-serif; font-weight:normal; color:#7d7d7d; font-size:14px; line-height:18px; text-align:left;"><font color="#7d7d7d">You have a new membership payment from <%= @membership.first_name %> <%= @membership.last_name %>. Their details are below. You can also login to the admin area <a style="color:#7d7d7d;" href="http://emlpo.ca/users/sign_in">here</a> to view all memberships and charges.</font></td>
+
+                  </tr>
+                  <tr>
+                    <td style="padding-bottom:25px; font-family:Arial, Geneva, sans-serif; font-weight:normal; color:#7d7d7d; font-size:14px; line-height:18px; text-align:left;"><font color="#7d7d7d">
+                      <b><font size="4"><%= @membership.first_name %> <%= @membership.last_name %></font></b><br>
+                      Company: <%= @membership.company_name %><br><br>
+                      <%= @membership.address %>, <%= @membership.city %> <%= @membership.province %>, <%= @membership.postal %>, Canada<br>
+                      <%= @membership.email %><br>
+                      <%= @membership.phone %><br><br>
+                      <b>Membership / Payment Details</b><br><br>
+
+                      <span style="text-transform:capitalize;"><%= @membership.membership_type.name %></span> / <%= @membership.membership_type.duration_years %> year<%= @membership.membership_type.pluralize %><br>
+                      $<%= @membership.membership_type.price_cdn %><br><br>
+
+                      Paid:  <%= @membership.last_paid_time.strftime("%B %e, %Y at %I:%M %p") %><br>
+                      Next Payment Due:  <%= @membership.next_paid_time.strftime("%B %e, %Y") %><br><br>
+
+                      <b>Notes:</b> <br><%= @membership.notes %>
+                    </font></td>
+
+                  </tr>
+                </table>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="512" height="15">
+                  <tr style="border-bottom:1px solid #e6e6e6;">
+                    <td></td>
+                  </tr>
+                </table>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="512" height="40">
+                  <tr style="">
+                    <td></td>
+                  </tr>
+                </table>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="512">
+                  <tr style="">
+                    <td colspan="1" style="width: 263px;font-family:Arial, Geneva, sans-serif; color:#7d7d7d; font-size:16px; line-height:18px; text-align:left;">
+                      <img src="http://cb3labs.ca/emlpo/mail_wel_bot_logo.jpg" width="263">
+                    </td>
+                    <td colspan="1" style="width: 249; font-family:Arial, Geneva, sans-serif; color:#7d7d7d; font-size:13px; line-height:15px; text-align:right;">
+                      <img src="http://cb3labs.ca/emlpo/mail_wel_bot_twit.jpg" width="27" height="49" align="right"><img src="http://cb3labs.ca/emlpo/mail_wel_bot_fb.jpg" width="36" height="49" align="right"><br clear="all">
+                      1048 Elk Drive, Eagle Lake<br>
+ON, K0M 1M0, Canada
+                    </td>
+                  </tr>
+                </table>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="512" height="40">
+                  <tr style="">
+                    <td></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+
+</center>
+</body>
+</html>

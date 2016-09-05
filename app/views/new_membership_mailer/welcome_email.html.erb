@@ -46,7 +46,7 @@
                 <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
                   <tr>
                     <td bgcolor="transparent" valign="top" width="600">
-                      <img src="http://cb3labs.ca/emlpo/mail_wel_head.jpg" width="600">
+                      <img src="http://cb3labs.ca/emlpo/mail_wel_head_2.jpg" width="600">
                     </td>
                   </tr>
                 </table><!-- // END HEADER -->
@@ -58,30 +58,72 @@
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="512">
                   <tr>
                     <td style="font-family:Arial, Geneva, sans-serif; font-weight:bold; color:#1e7092; font-size:20px; line-height:20px; text-align:left; height:25px;"><font color="#1e7092">Welcome to EMLPO!</font></td>
-                    <td style="font-family:Arial, Geneva, sans-serif; font-weight:normal; color:#7d7d7d; font-size:14px; line-height:18px; text-align:left; height:45px;"><font color="#7d7d7d">Your new membership details are below.</font></td>
 
                   </tr>
                   <tr>
-                    <p>
-                        First Name: <%= @membership.first_name %><br>
-                        Last Name:  <%= @membership.last_name %><br>
-                        Company Name: <%= @membership.company_name %><br>
-                        Email Address:  <%= @membership.email %><br>
-                        Mailing Address:  <%= @membership.address %><br>
-                        City:  <%= @membership.city %><br>
-                        Province:  <%= @membership.province %><br>
-                        Postal Code:  <%= @membership.postal %><br>
-                        Phone Number:  <%= @membership.phone %><br>
-                        Notes:  <%= @membership.notes %> <br>
-                        Last Paid:  <%= @membership.last_paid_time.strftime("%B %e, %Y at %I:%M %p") %><br>
-                        Next Payment Due:  <%= @membership.next_paid_time.strftime("%B %e, %Y at %I:%M %p") %><br>
-                        Email Communications:  <%= @membership.email_communications %><br>
-                        Membership Type:  <%= @membership.membership_type.name %><br>
-                        Membership Length:  <%= @membership.membership_type.duration_years %> year<%= @membership.membership_type.pluralize %><br>
-                        Membership Price:  $<%= @membership.membership_type.price_cdn %>
-                    </p>
+                    <td style="padding-bottom:25px; font-family:Arial, Geneva, sans-serif; font-weight:normal; color:#7d7d7d; font-size:14px; line-height:18px; text-align:left;"><font color="#7d7d7d">Confirmation of your payment and new membership details are below.</font></td>
+
+                  </tr>
+
+                </table>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="512">
+                  <tr style="background-color:#fafafa;">
+                    <td style="padding:25px 25px 0 25px; font-family:Arial, Geneva, sans-serif; font-weight:bold; color:#7d7d7d; font-size:16px; line-height:18px; text-align:left; text-transform:capitalize;"><font color="#7d7d7d"><%= @membership.membership_type.name %> Membership</font>&nbsp;&nbsp;&nbsp;<font color="#7d7d7d" size="2"> <%= @membership.membership_type.duration_years %> year<%= @membership.membership_type.pluralize %></font></td>
+                  </tr>
+                  <tr style="background-color:#fafafa;">
+                    <td style="padding:10px 25px 25px 25px; font-family:Arial, Geneva, sans-serif; font-weight:normal; color:#7d7d7d; font-size:14px; line-height:18px; text-align:left;"><font color="#7d7d7d">
+
+                      <b>Payment Amount:</b> $<%= @membership.membership_type.price_cdn %> CAD<br>
+                      <b>Next Payment Due:</b> <%= @membership.next_paid_time.strftime("%B %e, %Y") %><br>
+                      </font>
+                    </td>
+
                   </tr>
                 </table>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="512">
+                  <tr style="">
+                    <td style="padding-top:25px; font-family:Arial, Geneva, sans-serif; font-weight:bold; color:#1e7092; font-size:16px; line-height:18px; text-align:left;"><font color="#1e7092"><%= @membership.first_name %> <%= @membership.last_name %></font>&nbsp;&nbsp;&nbsp;<font color="#7d7d7d" size="2"> <%= @membership.company_name %></font></td>
+                  </tr>
+                  <tr>
+                    <td style="padding-bottom:25px; font-family:Arial, Geneva, sans-serif; font-weight:normal; color:#7d7d7d; font-size:14px; line-height:18px; text-align:left;"><font color="#7d7d7d">
+                      <%= @membership.address %>, <%= @membership.city %> <%= @membership.province %>, <%= @membership.postal %>, Canada<br><br>
+                      <b>Email:</b> <a href="mailto:<%= @membership.email %>" style="color:#7d7d7d; text-decoration:none;"><%= @membership.email %></a><br>
+                      <b>Phone:</b> <a href="tel:<%= @membership.phone %>" style="color:#7d7d7d; text-decoration:none;"><%= @membership.phone %></a><br>
+                      </font>
+                    </td>
+
+                  </tr>
+                </table>
+
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="512" height="15">
+                  <tr style="border-bottom:1px solid #e6e6e6;">
+                    <td></td>
+                  </tr>
+                </table>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="512" height="40">
+                  <tr style="">
+                    <td></td>
+                  </tr>
+                </table>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="512">
+                  <tr style="">
+                    <td colspan="1" style="width: 263px;font-family:Arial, Geneva, sans-serif; color:#7d7d7d; font-size:16px; line-height:18px; text-align:left;">
+                      <img src="http://cb3labs.ca/emlpo/mail_wel_bot_logo.jpg" width="263">
+                    </td>
+                    <td colspan="1" style="width: 249; font-family:Arial, Geneva, sans-serif; color:#7d7d7d; font-size:13px; line-height:15px; text-align:right;">
+                      <img src="http://cb3labs.ca/emlpo/mail_wel_bot_twit.jpg" width="27" height="49" align="right"><img src="http://cb3labs.ca/emlpo/mail_wel_bot_fb.jpg" width="36" height="49" align="right"><br clear="all">
+                      1048 Elk Drive, Eagle Lake<br>
+ON, K0M 1M0, Canada
+                    </td>
+                  </tr>
+                </table>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="512" height="40">
+                  <tr style="">
+                    <td></td>
+                  </tr>
+                </table>
+
+
 
 
 
