@@ -1,22 +1,97 @@
-<p>Hello <%= @membership.first_name %> <%= @membership.last_name %>!</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <title>EMLPO - Welcome to EMLPO!</title>
+  <link href="/favicon.png" rel="shortcut icon">
+  <style type="text/css">
+            /* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
+            #outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
+            .ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */
+            .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing */
+            body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; -webkit-font-smoothing:antialiased;} /* Prevent WebKit and Windows mobile changing default text sizes */
+            table, td{mso-table-lspace:0pt; mso-table-rspace:0pt; -webkit-font-smoothing:antialiased;} /* Remove spacing between tables in Outlook 2007 and up */
+            img{-ms-interpolation-mode:bicubic;} /* Allow smoother rendering of resized image in Internet Explorer */
 
-<p>Thank you for your support. Your membership details are below.</p>
+            /* /\/\/\/\/\/\/\/\/ RESET STYLES /\/\/\/\/\/\/\/\/ */
+            body{margin:0; padding:0;}
+            img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none;}
+            table{border-collapse:collapse !important; }
+            body, #bodyTable, #bodyCell{height:100% !important; margin:0; padding:0; width:100% !important;}
+            a {
+                transition: opacity .15s ease-in-out;
+               -moz-transition: opacity .15s ease-in-out;
+               -webkit-transition: opacity .15s ease-in-out;
+            }
 
-<p>
-    First Name: <%= @membership.first_name %><br>
-    Last Name:  <%= @membership.last_name %><br>
-    Company Name: <%= @membership.company_name %><br>
-    Email Address:  <%= @membership.email %><br>
-    Mailing Address:  <%= @membership.address %><br>
-    City:  <%= @membership.city %><br>
-    Province:  <%= @membership.province %><br>
-    Postal Code:  <%= @membership.postal %><br>
-    Phone Number:  <%= @membership.phone %><br>
-    Notes:  <%= @membership.notes %> <br>
-    Last Paid:  <%= @membership.last_paid_time.strftime("%B %e, %Y at %I:%M %p") %><br>
-    Next Payment Due:  <%= @membership.next_paid_time.strftime("%B %e, %Y at %I:%M %p") %><br>
-    Email Communications:  <%= @membership.email_communications %><br>
-    Membership Type:  <%= @membership.membership_type.name %><br>
-    Membership Length:  <%= @membership.membership_type.duration_years %> year<%= @membership.membership_type.pluralize %><br>
-    Membership Price:  $<%= @membership.membership_type.price_cdn %>
-</p>
+            a:hover {
+                filter: alpha(opacity=70);
+              -khtml-opacity: 0.7;
+              -moz-opacity: 0.7;
+              opacity: 0.7;
+            }
+
+  </style>
+</head>
+<body bgcolor="#FAFAFA" style="background-color:#fafafa; background-repeat:repeat-x; padding:0; margin:0;">
+  <center>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+      <tr>
+        <td align="center" valign="top" width="600">
+          <!-- BEGIN TEMPLATE // -->
+          <table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0; -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2); box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);" width="600">
+            <tr>
+              <td align="center" valign="top">
+                <!-- BEGIN HEADER // -->
+                <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <td bgcolor="transparent" valign="top" width="600">
+                      <img src="http://cb3labs.ca/emlpo/mail_wel_head.jpg" width="600">
+                    </td>
+                  </tr>
+                </table><!-- // END HEADER -->
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <!-- // Begin Template Body \\ -->
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="512">
+                  <tr>
+                    <td style="font-family:Arial, Geneva, sans-serif; font-weight:bold; color:#1e7092; font-size:20px; line-height:20px; text-align:left; height:25px;"><font color="#1e7092">Welcome to EMLPO!</font></td>
+                    <td style="font-family:Arial, Geneva, sans-serif; font-weight:normal; color:#7d7d7d; font-size:14px; line-height:18px; text-align:left; height:45px;"><font color="#7d7d7d">Your new membership details are below.</font></td>
+
+                  </tr>
+                  <tr>
+                    <p>
+                        First Name: <%= @membership.first_name %><br>
+                        Last Name:  <%= @membership.last_name %><br>
+                        Company Name: <%= @membership.company_name %><br>
+                        Email Address:  <%= @membership.email %><br>
+                        Mailing Address:  <%= @membership.address %><br>
+                        City:  <%= @membership.city %><br>
+                        Province:  <%= @membership.province %><br>
+                        Postal Code:  <%= @membership.postal %><br>
+                        Phone Number:  <%= @membership.phone %><br>
+                        Notes:  <%= @membership.notes %> <br>
+                        Last Paid:  <%= @membership.last_paid_time.strftime("%B %e, %Y at %I:%M %p") %><br>
+                        Next Payment Due:  <%= @membership.next_paid_time.strftime("%B %e, %Y at %I:%M %p") %><br>
+                        Email Communications:  <%= @membership.email_communications %><br>
+                        Membership Type:  <%= @membership.membership_type.name %><br>
+                        Membership Length:  <%= @membership.membership_type.duration_years %> year<%= @membership.membership_type.pluralize %><br>
+                        Membership Price:  $<%= @membership.membership_type.price_cdn %>
+                    </p>
+                  </tr>
+                </table>
+
+
+
+                <!-- // End Template Body \\ -->
+              </td>
+            </tr>
+          </table><!-- // END TEMPLATE -->
+        </td>
+      </tr>
+    </table>
+  </center>
+</body>
+</html>
