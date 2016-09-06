@@ -1,4 +1,4 @@
-MAILGUN_CONFIG = YAML.load_file(Rails.root.join('config', 'stripe.yml')).symbolize_keys!
+STRIPE_CONFIG = YAML.load_file(Rails.root.join('config', 'stripe.yml')).symbolize_keys!
 
 Rails.configuration.stripe = {
   :publishable_key => STRIPE_CONFIG[:publishable_key],
