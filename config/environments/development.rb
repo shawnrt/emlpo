@@ -56,11 +56,11 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :authentication => :plain,
-    :address => "smtp.mailgun.org",
+    :address => "smtp-relay.sendinblue.com",
     :port => 587,
     :domain => "mg.emlpo.ca",
-    :user_name => "shawn@mg.emlpo.ca",
-    :password => "BK2hs*Uh@!zE5TCL"
+    :user_name => "slrbutchart@gmail.com",
+    :password => "19pwmCnMLWSIrZFq"
 }
 
 config.action_mailer.raise_delivery_errors = :true
