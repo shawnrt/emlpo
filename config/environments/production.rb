@@ -75,6 +75,23 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  config.action_mailer.default_url_options = { :host => "emlpo.ca" }
+
+#  config.action_mailer.delivery_method = :mandrill
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+       :authentication => :plain,
+       :address => "smtp.mailgun.org",
+       :port => 587,
+       :domain => EY::Config.get(:mailgun, 'MAILGUN_DOMAIN'),
+       :user_name => EY::Config.get(:mailgun, 'MAILGUN_SMTP_USER'),
+       :password => EY::Config.get(:mailgun, 'MAILGUN_SMTP_PASSWORD')
+  }
+ config.action_mailer.perform_deliveries = :true
+ config.action_mailer.raise_delivery_errors = :false
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
