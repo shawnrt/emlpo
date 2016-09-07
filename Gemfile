@@ -31,16 +31,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'stripe'
 gem 'ey_config'
 
+gem 'pg', group: :production
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Devise
 gem 'devise'
-
-group :production do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
-end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
