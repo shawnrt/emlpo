@@ -59,8 +59,8 @@ Rails.application.configure do
     :address => "smtp-relay.sendinblue.com",
     :port => 587,
     :domain => "mg.emlpo.ca",
-    :user_name => "slrbutchart@gmail.com",
-    :password => "19pwmCnMLWSIrZFq"
+    :user_name => MAILGUN_CONFIG[:user_name],
+    :password => MAILGUN_CONFIG[:password]
 }
 
 config.action_mailer.raise_delivery_errors = :true

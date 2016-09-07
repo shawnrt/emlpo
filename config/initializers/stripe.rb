@@ -1,6 +1,8 @@
+STRIPE_CONFIG = YAML.load_file(Rails.root.join('config', 'stripe.yml')).symbolize_keys!
+
 Rails.configuration.stripe = {
-  :publishable_key => ENV['pk_test_t3feYzXbXeKcTAzM6TclamXk'],
-  :secret_key      => ENV['sk_test_gptqCO3O4z5kWVv6JSg76Xaq']
+  :publishable_key => STRIPE_CONFIG[:publishable_key],
+  :secret_key      => STRIPE_CONFIG[:secret_key]
 }
 
-Stripe.api_key = Rails.configuration.stripe[:secret_key]
+Stripe.api_key = STRIPE_CONFIG[:secret_key]
