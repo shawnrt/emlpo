@@ -31,4 +31,5 @@ class ApplicationController < ActionController::Base
     @membership = Membership.find(params[:membership_id] || params[:id])
   end
 
+
 end
