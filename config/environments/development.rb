@@ -53,15 +53,15 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost:3000'}
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :authentication => :plain,
-    :address => "smtp-relay.sendinblue.com",
-    :port => 587,
-    :domain => "mg.emlpo.ca",
-    :user_name => MAILGUN_CONFIG[:user_name],
-    :password => MAILGUN_CONFIG[:password]
-}
+#  config.action_mailer.delivery_method = :smtp
+#  config.action_mailer.smtp_settings = {
+#    :authentication => :plain,
+#    :address => "smtp-relay.sendinblue.com",
+#    :port => 587,
+#    :domain => "mg.emlpo.ca",
+#    :user_name => MAILGUN_CONFIG[:user_name],
+#    :password => MAILGUN_CONFIG[:password]
+#}
 
 config.action_mailer.raise_delivery_errors = :true
 
