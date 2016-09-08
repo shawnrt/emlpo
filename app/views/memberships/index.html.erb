@@ -19,40 +19,48 @@
   </div>
   <div class="row" style="margin-top:0px;">
     <div class="col-sm-12 col-md-12 col-lg-12 no_pad">
-      <div class="con_table_shell">
-        <div class="table-responsive" style="border:0 !important;">
-          <table class="table">
-            <thead>
-              <tr class="tr_head">
-                <td>Name</td>
-                <td>Phone Number</td>
-                <td>Email Address</td>
-                <td>Payments</td>
-                <td>Next Payment Due</td>
-                <td></td>
-              </tr>
-            </thead>
-            <tbody>
-            <% @memberships.sort_by{ |t| t.next_paid_time }.each do |membership| %>
-              <tr class="tr_body">
-                <td class="td_member_1"><%= membership.first_name %> <%= membership.last_name %></td>
-                <td class="td_member_2"><%= membership.phone %></td>
-                <td class="td_member_3"><%= membership.email %></td>
-                <td class="td_member_4"><%= membership.charges.count %></td>
-                <td class="td_member_5"><%= membership.next_paid_time.strftime("%B %e, %Y") %></td>
-                <td class="td_member_6"><a href="/memberships/<%= membership.id %>/edit">Edit</a><a href="/memberships/<%= membership.id %>">View</a></td>
-              </tr>
-            <% end %>
+      <% if @memberships.nil? %>
+        <div class="mem_empty">New member signups along with related charges will appear here.</div>
+      <% else %>
+        <div class="con_table_shell">
+          <div class="table-responsive" style="border:0 !important;">
+            <table class="table">
+              <thead>
+                <tr class="tr_head">
+                  <td>Name</td>
+                  <td>Phone Number</td>
+                  <td>Email Address</td>
+                  <td>Payments</td>
+                  <td>Next Payment Due</td>
+                  <td></td>
+                </tr>
+              </thead>
+              <tbody>
+              <% @memberships.sort_by{ |t| t.next_paid_time }.each do |membership| %>
+                <tr class="tr_body">
+                  <td class="td_member_1"><%= membership.first_name %> <%= membership.last_name %></td>
+                  <td class="td_member_2"><%= membership.phone %></td>
+                  <td class="td_member_3"><%= membership.email %></td>
+                  <td class="td_member_4"><%= membership.charges.count %></td>
+                  <td class="td_member_5"><%= membership.next_paid_time.strftime("%B %e, %Y") %></td>
+                  <td class="td_member_6"><a href="/memberships/<%= membership.id %>/edit">Edit</a><a href="/memberships/<%= membership.id %>">View</a></td>
+                </tr>
+              <% end %>
 
 
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+        <% end %>
       <div class="about_head">
         Email <span>Communications</span>
       </div>
 
+      <% if @memberships.nil? %>
+        <div class="mem_empty">Members that wish to receive email communications will show up here.</div>
+
+      <% else %>
       <div class="con_table_shell">
         <div class="table-responsive" style="border:0 !important;">
           <table class="table">
@@ -79,6 +87,7 @@
           </table>
         </div>
       </div>
+      <% end %>
     </div>
   </div>
 </div>

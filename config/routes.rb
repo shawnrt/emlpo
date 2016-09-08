@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get "/login/:token" => "memberships#login"
   get "/logout" => "memberships#logout"
 
+  delete "/memberships/:id" => "memberships#destroy"
+
 
   resources :memberships do |memberships|
     resources :charges

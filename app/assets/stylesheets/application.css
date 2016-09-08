@@ -467,8 +467,8 @@ input:focus {
 }
 
 .bot_logo {
-  float:left;
-  margin:22px 0 36px 0;
+  float:none;
+  margin:22px 0px 16px 30px;
   width:149px;
   height:28px;
   background-image:url(/assets/logo_text_white.svg);
@@ -478,9 +478,9 @@ input:focus {
 }
 
 .bot_tag {
-  float:left;
-  border-left:1px solid #82abbc;
-  padding:20px 0 0 30px;
+  float:none;
+  border-left:0px solid #82abbc;
+  padding:0px 0 20px 30px;
   font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#8fb8c9; font-size:15px; line-height:15px;
 }
 
@@ -995,6 +995,15 @@ input:focus {
 
 /* Membership */
 
+.mem_empty {
+  background-color:#fafafa;
+  border-radius:3px;
+  padding:30px;
+  margin:0 0 40px 0;
+  font-family:'roboto_bold', Verdana, Geneva, sans-serif; font-size:15px; line-height:15px; color:#868686;
+
+}
+
 .mem_left_shell {
   padding-right:0px;
   border-right:0px solid #e6e6e6;
@@ -1124,7 +1133,7 @@ input:focus {
   border:0;
   background-color:#1e7092;
   border-radius:3px;
-  margin:0px 0 0 0;
+  margin:0px 8px 8px 0;
   padding:16px 16px 16px 20px;
   font-family:'roboto_medium', Verdana, Geneva, sans-serif; color:#ffffff; font-size:16px; line-height:16px;
   text-align:left;
@@ -1144,6 +1153,74 @@ input:focus {
   -moz-opacity: 0.7;
   opacity: 0.7;
   }
+
+  .mem_form_cancel_btn {
+    border:0;
+    background-color:#8686868;
+    border-radius:3px;
+    margin:0px 0 0 0;
+    padding:16px 16px 16px 20px;
+    font-family:'roboto_medium', Verdana, Geneva, sans-serif; color:#ffffff; font-size:16px; line-height:16px;
+    text-align:left;
+    width:240px;
+    background-image:url(/assets/cancel_white.svg);
+    background-position:210px 18px;
+    background-repeat:no-repeat;
+    background-size:12px auto;
+    transition: all .15s ease-in-out;
+       -moz-transition: all .15s ease-in-out;
+       -webkit-transition: all .15s ease-in-out;
+    }
+
+    .mem_form_cancel_btn:hover {
+      background-color:#bb0000;
+    }
+
+    .mem_form_cancel_confirm_btn {
+      border:0;
+      background-color:#bb0000;
+      border-radius:3px;
+      margin:0px 0 0 0;
+      padding:16px 16px 16px 20px;
+      font-family:'roboto_medium', Verdana, Geneva, sans-serif; color:#ffffff; font-size:16px; line-height:16px;
+      text-align:left;
+      width:240px;
+      background-image:url(/assets/cancel_white.svg);
+      background-position:210px 18px;
+      background-repeat:no-repeat;
+      background-size:12px auto;
+      transition: opacity .15s ease-in-out;
+         -moz-transition: opacity .15s ease-in-out;
+         -webkit-transition: opacity .15s ease-in-out;
+      }
+
+      .mem_form_cancel_confirm_btn:hover {
+      filter: alpha(opacity=70);
+      -khtml-opacity: 0.7;
+      -moz-opacity: 0.7;
+      opacity: 0.7;
+      }
+
+      .mem_form_close_confirm_btn {
+        border:1px solid #e6e6e6;;
+        background-color:#ffffff;
+        border-radius:3px;
+        margin:0px 12px 0 0;
+        padding:16px 16px 16px 20px;
+        font-family:'roboto_medium', Verdana, Geneva, sans-serif; color:#868686; font-size:16px; line-height:16px;
+        text-align:left;
+        width:85px;
+        transition: opacity .15s ease-in-out;
+           -moz-transition: opacity .15s ease-in-out;
+           -webkit-transition: opacity .15s ease-in-out;
+        }
+
+        .mem_form_close_confirm_btn:hover {
+        filter: alpha(opacity=70);
+        -khtml-opacity: 0.7;
+        -moz-opacity: 0.7;
+        opacity: 0.7;
+        }
 
   .mem_form_botlink {
     font-family:'roboto_medium', Verdana, Geneva, sans-serif; color:#7d7d7d; font-size:14px; line-height:14px;
@@ -1211,6 +1288,7 @@ input:focus {
       margin-top:20px;
 
     }
+
 
 .charge_show_shell {
   margin:0 0 0 0;
@@ -1690,6 +1768,24 @@ td {border-top:0 !important; padding-left:0 !important;}
 /* *******************
  Small devices (tablets, 768px and up) - css_sm */
 @media (min-width: 768px) {
+
+  .bot_logo {
+    float:left;
+    margin:22px 0 36px 0;
+    width:149px;
+    height:28px;
+    background-image:url(/assets/logo_text_white.svg);
+  	background-position:0 0;
+  	background-repeat:no-repeat;
+  	background-size:120px auto;
+  }
+
+  .bot_tag {
+    float:left;
+    border-left:1px solid #82abbc;
+    padding:20px 0 0 30px;
+    font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#8fb8c9; font-size:15px; line-height:15px;
+  }
 
   .container_style {
     padding:0 55px 30px 55px;

@@ -92,10 +92,21 @@
           </div>
           <div style="width:100%; margin:15px 0 30px 0; border-top:1px dashed #e6e6e6;"></div>
 
-
+          <% if @current_user.nil? %>
+            <div class="mem_form_line_full">
+              <%= f.submit "Continue and Pay", class: "mem_form_btn"%>
+            </div>
+          <% else %>
           <div class="mem_form_line_full">
-            <%= f.submit "Continue and Pay", class: "mem_form_btn"%>
+            <%= f.submit "Save Changes", class: "mem_form_btn"%>
+            <button type="button" class="mem_form_cancel_btn" data-toggle="modal" data-target="#confirm_delete_modal">
+              Delete Membership
+            </button>
+
           </div>
+          <% end %>
+
+
         <% end %>
       </div>
     </div>
@@ -103,6 +114,7 @@
     </div>
   </div>
 </div>
+
 
 <div class="bot_tag_shell">
   <div class="container">
