@@ -1,6 +1,5 @@
 class ChargesController < ApplicationController
   before_filter :load_membership
-  before_filter :allow_destroy
   before_filter :login_from_session!
   before_filter :ensure_authenticated!
 
