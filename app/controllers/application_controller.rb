@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  def redirect_to_https
+    redirect_to :protocol => "https://" unless (request.ssl? || request.local?)
+  end
+
   def membership_path
     "/memberships"
   end
@@ -30,6 +34,7 @@ class ApplicationController < ActionController::Base
   def load_membership
     @membership = Membership.find(params[:membership_id] || params[:id])
   end
+
 
 
 end
