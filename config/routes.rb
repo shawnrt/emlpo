@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  get "*path" => redirect("https://emlpo.ca/%{path}"), :constraints => { :protocol => "http://" }
+  get "*path" => redirect("https://emlpo.ca/%{path}"), :constraints => { :subdomain => "" }
   root 'home#index'
   get 'about' => 'about#index'
   get 'resources' => 'resources#index'
