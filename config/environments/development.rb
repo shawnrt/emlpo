@@ -51,6 +51,9 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+  config.force_ssl = true
+
   config.action_mailer.default_url_options = { host: 'localhost:3000'}
 
 #  config.action_mailer.delivery_method = :smtp
