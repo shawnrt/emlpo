@@ -56,9 +56,7 @@ class MembershipsController < ApplicationController
 
   def destroy
     @membership = Membership.find(params[:id])
-    @membership_id = Membership.find(params[:membership_id])
-    @charges = @membership_id.charges.find(params[:id])
-    @charges.destroy
+    @charges = @membership.charges.find(params[:id])
     @membership.destroy
     redirect_to "/memberships"
     flash[:notice] = "Membership successfully deleted."
