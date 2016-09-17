@@ -23,7 +23,6 @@ def create
   # Amount in cents
   @membership_type = @membership.membership_type
   @stripe_token = params[:stripe_token]
-  Stripe.api_key = "sk_test_gptqCO3O4z5kWVv6JSg76Xaq"
 
   customer = Stripe::Customer.create(
     :email => params[:stripeEmail],
@@ -53,13 +52,13 @@ def create
       NewMembershipMailer.welcome_email_admin(@membership).deliver_now
     else
       redirect_to "/memberships/#{@membership.id}/charges/new"
-      flash[:error] = "There was a problem charging your account. Please check all fields and try again."
+      flash[:error] = "There was a problem creating your account. Please check all fields and try again."
     end
   end
 
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to "/"
+    redirect_to "/memberships/#{@membership.id}/charges/new"
   end
 end
