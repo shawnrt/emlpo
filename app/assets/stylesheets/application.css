@@ -765,7 +765,7 @@ input:focus {
 }
 
 .about_head span {
-  font-family:'roboto_light', Verdana, Geneva, sans-serif; color:#1e7092;
+  font-family:'roboto_light', Verdana, Geneva, sans-serif; color:#1e7092; font-size:32px; line-height:32px;
 }
 
 .about_body {
@@ -891,23 +891,23 @@ input:focus {
 
 .letter_grey_shell {
   margin:30px 0 30px 0;
-  padding:30px;
+  padding:40px;
   border-radius:3px;
   background-color:#fafafa;
 }
 
 .letter_grey_head {
-  font-family:'roboto_light', Verdana, Geneva, sans-serif; color:#b0b0b0; font-size:24px; line-height:24px;
+  font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#b0b0b0; font-size:24px; line-height:24px;
   margin:0px 0 20px 0;
 }
 
 .letter_grey_head span {
-  font-family:'roboto_light', Verdana, Geneva, sans-serif; color:#1e7092;
+  font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#1e7092; font-size:24px; line-height:24px;
 }
 
 .letter_grey_body {
-  font-family:'roboto_light', Verdana, Geneva, sans-serif; color:#7d7d7d; font-size:17px; line-height:23px;
-  margin:0px 0 20px 0;
+  font-family:'roboto_regular', Verdana, Geneva, sans-serif; color:#7d7d7d; font-size:17px; line-height:23px;
+  margin:0px 0 0px 0;
 }
 
 .letter_grey_body a {
