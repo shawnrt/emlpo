@@ -56,7 +56,8 @@ class MembershipsController < ApplicationController
 
   def destroy
     @membership = Membership.find(params[:id])
-    @charges = @membership.membership_id.charges.find(params[:id])
+    @membership_id = Membership.find(params[:membership_id])
+    @charges = @membership_id.charges.find(params[:id])
     @charges.destroy
     @membership.destroy
     redirect_to "/memberships"
