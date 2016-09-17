@@ -13,12 +13,21 @@
 <div class="container container_style">
   <div class="row" style="margin-top:40px;">
     <div class="col-sm-12 col-md-12 col-lg-12 no_pad">
-      <div class="about_head">
-        Edit your <span>Membership Details</span>
-      </div>
-      <div class="about_body">
-        Edit your EMLPO membership details using the form below. Then click submit to return to the payment page.
-      </div>
+      <% if @current_user.nil? %>
+        <div class="about_head">
+          Edit your <span>Membership Details</span>
+        </div>
+        <div class="about_body">
+          Edit your EMLPO membership details using the form below. Then click submit to return to the payment page.
+        </div>
+      <% else %>
+        <div class="about_head">
+          Edit <span>Membership Details</span>
+        </div>
+        <div class="about_body">
+          Edit the membership details for <%= @membership.first_name %> <%= @membership.first_name %> using the form below, then click 'Save Changes'.
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="row" style="margin-top:16px;">
