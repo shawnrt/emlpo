@@ -4,7 +4,7 @@ Confirmation of your payment and new membership details are below.
 ---
 <%= @membership.membership_type.name %> Membership - <%= @membership.membership_type.duration_years %> year<%= @membership.membership_type.pluralize %>
 
-Payment Amount: $<%= @membership.membership_type.price_cdn %> CAD
+Payment Amount: $<%= @membership.membership_type.price_cdn %>
 Next Payment Due: <%= @membership.next_paid_time.strftime("%B %e, %Y") %>
 
 <%= @membership.first_name %> <%= @membership.last_name %>

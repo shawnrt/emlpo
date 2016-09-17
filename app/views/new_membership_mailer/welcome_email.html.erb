@@ -73,7 +73,7 @@
                   <tr style="background-color:#fafafa;">
                     <td style="padding:10px 25px 25px 25px; font-family:Arial, Geneva, sans-serif; font-weight:normal; color:#7d7d7d; font-size:14px; line-height:18px; text-align:left;"><font color="#7d7d7d">
 
-                      <b>Payment Amount:</b> $<%= @membership.membership_type.price_cdn %> CAD<br>
+                      <b>Payment Amount:</b> $<%= @membership.membership_type.price_cdn %><br>
                       <b>Next Payment Due:</b> <%= @membership.next_paid_time.strftime("%B %e, %Y") %><br>
                       </font>
                     </td>
