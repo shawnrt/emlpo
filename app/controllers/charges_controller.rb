@@ -1,5 +1,5 @@
 class ChargesController < ApplicationController
-  before_filter :redirect_to_https
+#  before_filter :redirect_to_https
   before_filter :load_membership
   before_filter :login_from_session!
   before_filter :ensure_authenticated!

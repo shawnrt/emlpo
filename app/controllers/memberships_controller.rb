@@ -1,6 +1,6 @@
 class MembershipsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :new, :edit, :login, :create, :destroy]
-  before_filter :redirect_to_https
+#  before_filter :redirect_to_https
   before_filter :load_membership, only: [:show, :edit, :update, :destroy]
   before_filter :login_from_session!, except: [:index, :new, :login, :create, :destroy]
   before_filter :ensure_authenticated!, except: [:index, :new, :login, :create]
