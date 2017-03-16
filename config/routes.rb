@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'about' => 'about#index'
   get 'resources' => 'resources#index'
   get 'contact' => 'contact#index'
-  get 'letter' => 'letter#index'
+#  get 'letter' => 'letter#index'
   get 'advertising' => 'advertising#index'
   get 'success' => 'success#index'
 
